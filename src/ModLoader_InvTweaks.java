@@ -132,7 +132,7 @@ public abstract class ModLoader_InvTweaks {
     }
 
     public static void onItemPickup(of entityplayer, ri stack) {
-        mod.onItemPickup(entityplayer, stack);
+      //  mod.onItemPickup(entityplayer, stack);
     }
 
 }
