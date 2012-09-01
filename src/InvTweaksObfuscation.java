@@ -25,9 +25,9 @@ public class InvTweaksObfuscation {
     
     static {
         // CreativeSlot.underlyingSlot
-        makeFieldPublic(aqo.class, "b");
+        makeFieldPublic(aqp.class, "b");
         // RenderEngine.texturePack
-        makeFieldPublic(ave.class, "k");
+        makeFieldPublic(avf.class, "k");
     }
     
 	public InvTweaksObfuscation(Minecraft mc) {
@@ -322,7 +322,8 @@ public class InvTweaksObfuscation {
     	return mods.getSpecialChestRowSize(guiContainer, defaultValue);
     }
     protected boolean hasTexture(String texture) {
-        return mc.o.k.e().a(texture) != null;
+        ayj texturePacksManager = (ayj) getThroughReflection(avf.class, "k", mc.o);
+        return texturePacksManager != null && texturePacksManager.e().a(texture) != null;
     }
 
     // Static access
@@ -433,7 +434,7 @@ public class InvTweaksObfuscation {
     }
 
     protected boolean isBasicSlot(Object o) { // Slot
-        return o != null && o.getClass().equals(pq.class);
+        return o != null && o.getClass().equals(pr.class);
     }
     
     // Reflection utils

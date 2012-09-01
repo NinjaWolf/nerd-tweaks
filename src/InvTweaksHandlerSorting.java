@@ -74,7 +74,8 @@ public class InvTweaksHandlerSorting extends InvTweaksObfuscation {
 
         this.containerMgr = new InvTweaksContainerSectionManager(mc, section);
         this.size = containerMgr.getSize();
-        this.sortArmorParts = config.getProperty(InvTweaksConfig.PROP_ENABLE_AUTO_EQUIP_ARMOR).equals(InvTweaksConfig.VALUE_TRUE);
+        this.sortArmorParts = config.getProperty(InvTweaksConfig.PROP_ENABLE_AUTO_EQUIP_ARMOR).equals(InvTweaksConfig.VALUE_TRUE)
+                && !isGuiInventoryCreative(getCurrentScreen()); // FIXME Armor parts disappear when sorting in creative mode while holding an item
         
         this.rules = config.getRules();
         this.tree = config.getTree();
@@ -401,7 +402,6 @@ public class InvTweaksHandlerSorting extends InvTweaksObfuscation {
                     
                     keywordOrder[j] = keywordOrder[i];
                     rulePriority[j] = priority;
-                    rulePriority[i] = -1;
                     rulePriority[i] = -1;
                     containerMgr.move(i, j);
 
